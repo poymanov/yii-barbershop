@@ -2,52 +2,94 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Главная';
 ?>
-<div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+<main class="container container-index">
+    <div class="index-logo">
+        <img src="img/index-logo.png" width="368" height="204" alt="Барбершоп «Бородинский»">
     </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+    <section class="features clearfix">
+        <div class="features-item">
+            <b class="features-name">Быстро</b>
+            <p>
+                Мы делаем свою работу быстро! Два часа пролетят незаметно
+                и вы — счастливый обладатель стильной стрижки-минутки!
+            </p>
+        </div>
+        <div class="features-item">
+            <b class="features-name">Круто</b>
+            <p>
+                Забудьте, как вы стриглись раньше. Мы сделаем из вас звезду
+                футбола или кино!<br> Во всяком случае внешне.
+            </p>
+        </div>
+        <div class="features-item">
+            <b class="features-name">Дорого</b>
+            <p>
+                Наши мастера — профессионалы своего дела и не могут стоить дешево.
+                К тому же, разве цена не дает определенный статус?
+            </p>
+        </div>
+    </section>
+    <div class="index-content clearfix">
+        <div class="index-content-left">
+            <h2 class="index-content-title">Новости</h2>
+            <ul class="news-preview">
+                <li>
+                    <p>
+                        Нам наконец завезли Ягермайстер! Теперь вы можете пропустить
+                        стаканчик во время стрижки
+                    </p>
+                    <time datetime="2016-01-11">11 января</time>
+                </li>
+                <li>
+                    <p>
+                        В нашей команде пополнение, Борис «Бритва» Стригунец,
+                        обладатель множества титулов и наград пополнил наши
+                        стройные ряды
+                    </p>
+                    <time datetime="2016-01-18">18 января</time>
+                </li>
+            </ul>
+            <a class="btn" href="#">Все новости</a>
+        </div>
+        <div class="index-content-right">
+            <h2 class="index-content-title">Фотогалерея</h2>
+            <div class="gallery">
+                <figure class="gallery-content">
+                    <img src="img/photo-1.jpg" width="286" height="164" alt="Галерея">
+                </figure>
+                <button class="btn gallery-prev disabled">Назад</button>
+                <button class="btn gallery-next">Вперёд</button>
             </div>
         </div>
-
     </div>
-</div>
+    <div class="index-content clearfix">
+        <div class="index-content-left">
+            <h2 class="index-content-title">Контактная информация</h2>
+            <p>
+                Барбершоп «Бородинский»<br>
+                Адрес: г. Санкт-Петербург, Б. Конюшенная, д. 19/8<br>
+                Телефон: +7 (812) 666-02-66
+            </p>
+            <p>
+                Время работы:<br>
+                пн — пт: с 10:00 до 22:00<br>
+                сб — вс: с 10:00 до 19:00
+            </p>
+            <a class="btn map-link" href="#">Как проехать</a>
+            <a class="btn" href="#">Обратная связь</a>
+        </div>
+        <div class="index-content-right">
+            <h2 class="index-content-title">Записаться</h2>
+            <p>Укажите желаемую дату и время и мы свяжемся с вами для подтверждения брони</p>
+            <form class="appointment-form" action="https://echo.htmlacademy.ru" method="post">
+                <input type="text" name="date" value="" placeholder="Дата" required>
+                <input type="text" name="time" value="" placeholder="Время" required>
+                <input type="text" name="name" value="" placeholder="Ваше имя" required>
+                <input type="tel" name="phone" value="" placeholder="Телефон" required>
+                <button class="btn" type="submit">Отправить</button>
+            </form>
+        </div>
+    </div>
+</main>
