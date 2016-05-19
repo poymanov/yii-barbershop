@@ -57,6 +57,11 @@ class SiteController extends Controller
         return $this->render('price');
     }
 
+    public function actionCatalog()
+    {
+        return $this->render('catalog');
+    }
+
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
