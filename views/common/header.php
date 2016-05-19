@@ -1,5 +1,12 @@
 <header class="main-header">
     <div class="container clearfix">
+        <?php if(!isset($this->params['IsMain'])) {?>
+            <div class="icon-logo">
+                <a href="/">
+                    <img src="/img/icon-logo.png" width="111" height="24" alt="Barbershop">
+                </a>
+            </div>
+        <?php } ?>
         <nav class="main-navigation">
             <ul>
                 <li>

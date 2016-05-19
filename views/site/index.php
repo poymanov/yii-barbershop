@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 
 $this->title = 'Главная';
+$this->params['IsMain'] = true;
 ?>
 <main class="container container-index">
     <div class="index-logo">

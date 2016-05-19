@@ -1,4 +1,8 @@
+<?php if(isset($this->params['IsMain'])) {?>
 <footer class="main-footer">
+<?php } else {?>
+<footer class="main-footer catalog-footer">
+<?php }?>
     <div class="container clearfix">
         <section class="footer-contacts">
             Барбершоп «Бородинский»<br>

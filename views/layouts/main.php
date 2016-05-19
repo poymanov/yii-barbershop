@@ -18,7 +18,13 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?> - Барбершоп Бородинский</title>
     <?php $this->head() ?>
 </head>
-<body>
+
+<?php if(isset($this->params['IsMain'])) {?>
+    <body>
+<?php } else {?>
+    <body class="alternate-body">
+<?php } ?>
+
 <?php $this->beginBody() ?>
 
 <?php echo \Yii::$app->view->renderFile('@app/views/common/header.php'); ?>
