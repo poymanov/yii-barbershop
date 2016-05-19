@@ -10,20 +10,15 @@ namespace app\assets;
 use yii\web\AssetBundle;
 
 /**
+ * Asset bundle for the Twitter bootstrap css files.
+ *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @since 2.0
  */
-class AppAsset extends AssetBundle
+class NormalizeAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    public $sourcePath = '@bower/normalize.css';
     public $css = [
-        'css/site.css',
-    ];
-    public $js = [
-    ];
-    public $depends = [
-        'yii\web\YiiAsset',
-        'app\assets\NormalizeAsset',
+        'normalize.css',
     ];
 }

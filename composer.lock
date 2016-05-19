@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "479407875c975e7dbee0aefcb85e62d5",
-    "content-hash": "5c27dd23827e5c153817a7f3f5d227c6",
+    "hash": "aa7339f2ae444d17a7f3ca5df910df5d",
+    "content-hash": "483d6d57124ebadd3e7cab3827d6b001",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -132,6 +132,36 @@
                 "mask",
                 "plugins"
             ]
+        },
+        {
+            "name": "bower-asset/normalize.css",
+            "version": "4.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/necolas/normalize.css.git",
+                "reference": "39c21b3678ff1ebd2aebc51ec56d55d18a5a68e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/necolas/normalize.css/zipball/39c21b3678ff1ebd2aebc51ec56d55d18a5a68e3",
+                "reference": "39c21b3678ff1ebd2aebc51ec56d55d18a5a68e3",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "normalize.css",
+                "bower-asset-ignore": [
+                    "CHANGELOG.md",
+                    "CONTRIBUTING.md",
+                    "package.json",
+                    "README.md",
+                    "test.html"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "A modern alternative to CSS resets"
         },
         {
             "name": "bower-asset/punycode",
