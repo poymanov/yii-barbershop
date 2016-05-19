@@ -26,11 +26,4 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
-### Yii template
-assets/*
-!assets/.gitignore
-protected/runtime/*
-!protected/runtime/.gitignore
-protected/data/*.db
-themes/classic/views/
 
