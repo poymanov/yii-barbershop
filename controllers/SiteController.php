@@ -62,6 +62,11 @@ class SiteController extends Controller
         return $this->render('catalog');
     }
 
+    public function actionProduct()
+    {
+        return $this->render('product');
+    }
+
     public function actionLogin()
     {
         if (!Yii::$app->user->isGuest) {
