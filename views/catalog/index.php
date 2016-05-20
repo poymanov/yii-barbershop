@@ -14,9 +14,6 @@ $this->title = 'Каталог';
         <li>
             <a href="#">Магазин</a>
         </li>
-        <li>
-            Средства для ухода
-        </li>
     </ul>
     <div class="filter-container">
         <form class="filter-form" action="https://echo.htmlacademy.ru" method="post">
@@ -29,12 +26,10 @@ $this->title = 'Каталог';
             </div>
             <div class="group-filter">
                 <h2 class="filter-title">Группы товаров:</h2>
-                <input type="radio" name="item-group" value="item-1" id="radio-1">
-                <label for="radio-1">Бритвенные принадлежности</label>
-                <input type="radio" name="item-group" value="item-2" id="radio-2" checked>
-                <label for="radio-2">Средства для ухода</label>
-                <input type="radio" name="item-group" value="item-3" id="radio-3">
-                <label for="radio-3">Аксессуары</label>
+                <?php foreach($categories as $category) {?>
+                    <input type="radio" name="item-group" value="item-<?=$category->id?>" id="radio-<?=$category->id?>">
+                    <label for="radio-<?=$category->id?>"><?=$category->name?></label>
+                <?php } ?>
             </div>
             <button class="btn" type="submit">Показать</button>
         </form>
