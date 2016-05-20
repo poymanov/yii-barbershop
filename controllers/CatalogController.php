@@ -6,6 +6,7 @@ use Yii;
 use yii\web\Controller;
 use app\models\Manufacturers;
 use app\models\Categories;
+use app\models\Products;
 
 class CatalogController extends Controller
 {
@@ -17,6 +18,9 @@ class CatalogController extends Controller
         // Получение списка всех категорий товаров
         $categories = Categories::find()->all();
 
-        return $this->render('index',compact('manufacturers','categories'));
+        // Получение всех товаров
+        $products = Products::find()->all();
+
+        return $this->render('index',compact('manufacturers','categories','products'));
     }
 }
