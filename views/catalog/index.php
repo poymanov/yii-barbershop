@@ -22,18 +22,10 @@ $this->title = 'Каталог';
         <form class="filter-form" action="https://echo.htmlacademy.ru" method="post">
             <div class="brand-filter">
                 <h2 class="filter-title">Производители:</h2>
-                <input type="checkbox" name="brand-1" id="choice-1" checked>
-                <label for="choice-1">Baxter of California</label>
-                <input type="checkbox" name="brand-2" id="choice-2">
-                <label for="choice-2">Mr Natty</label>
-                <input type="checkbox" name="brand-3" id="choice-3" checked>
-                <label for="choice-3">Suavecito</label>
-                <input type="checkbox" name="brand-4" id="choice-4">
-                <label for="choice-4">Malin+Goetz</label>
-                <input type="checkbox" name="brand-5" id="choice-5">
-                <label for="choice-5">Murray's</label>
-                <input type="checkbox" name="brand-6" id="choice-6" checked>
-                <label for="choice-6">American crew</label>
+                <?php foreach($manufacturers as $manufacturer) {?>
+                    <input type="checkbox" name="brand-<?=$manufacturer->id?>" id="choice-<?=$manufacturer->id?>">
+                    <label for="choice-<?=$manufacturer->id?>"><?=$manufacturer->name?></label>
+                <?php } ?>
             </div>
             <div class="group-filter">
                 <h2 class="filter-title">Группы товаров:</h2>
