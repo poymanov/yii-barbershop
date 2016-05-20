@@ -1,3 +1,7 @@
+<?php
+use yii\helpers\Url;
+?>
+
 <header class="main-header">
     <div class="container clearfix">
         <?php if(!isset($this->params['IsMain'])) {?>
@@ -16,7 +20,7 @@
                     <a href="#">Новости</a>
                 </li>
                 <li>
-                    <a href="">Прайс-лист</a>
+                    <a href="<?=Url::toRoute(['site/price'])?>">Прайс-лист</a>
                 </li>
                 <li>
                     <a href="">Магазин</a>

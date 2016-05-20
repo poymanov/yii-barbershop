@@ -50,6 +50,7 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'prices' => 'site/price'
             ]
         ]
     ],
