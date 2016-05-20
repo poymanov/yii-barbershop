@@ -50,7 +50,8 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                'prices' => 'site/price'
+                'prices' => 'site/price',
+                'catalog' => 'catalog/index'
             ]
         ]
     ],

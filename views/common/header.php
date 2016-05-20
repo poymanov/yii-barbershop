@@ -23,7 +23,7 @@ use yii\helpers\Url;
                     <a href="<?=Url::toRoute(['site/price'])?>">Прайс-лист</a>
                 </li>
                 <li>
-                    <a href="">Магазин</a>
+                    <a href="<?=Url::toRoute(['catalog/index'])?>">Магазин</a>
                 </li>
                 <li>
                     <a href="#">Контакты</a>
