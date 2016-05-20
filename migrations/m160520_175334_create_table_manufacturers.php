@@ -16,6 +16,22 @@ class m160520_175334_create_table_manufacturers extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull()
         ]);
+
+        // Начальные данные
+        $manufacturers = array(
+            'Baxter of California',
+            'Mr Natty',
+            'Suavecito',
+            'Malin+Goetz',
+            'Murray\'s',
+            'American crew'
+        );
+        
+        // Заполнение таблицы начальными данными
+        foreach ($manufacturers as $manufacturer) {
+            $this->insert('manufacturers',array(
+                'name' => $manufacturer));
+        }
     }
 
     /**

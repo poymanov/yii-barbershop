@@ -16,6 +16,19 @@ class m160520_184710_create_categories extends Migration
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull()
         ]);
+
+        // Начальные данные
+        $categories = array(
+            'Бритвенные принадлежности',
+            'Средства для ухода',
+            'Аксессуары'
+        );
+
+        // Заполнение таблицы начальными данными
+        foreach ($categories as $category) {
+            $this->insert('categories',array(
+                'name' => $category));
+        }
     }
 
     /**
