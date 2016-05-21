@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use yii\web\Controller;
+use yii\data\Pagination;
 use app\models\Manufacturers;
 use app\models\Categories;
 use app\models\Products;
@@ -21,6 +22,13 @@ class CatalogController extends Controller
         // Получение всех товаров
         $products = Products::find()->all();
 
-        return $this->render('index',compact('manufacturers','categories','products'));
+        $query = Products::find();
+        $countQuery = clone $query;
+        $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize' => 6]);
+        $products = $query->offset($pages->offset)
+            ->limit($pages->limit)
+            ->all();
+
+        return $this->render('index',compact('manufacturers','categories','products','pages'));
     }
 }

@@ -3,6 +3,7 @@
 /* @var $this yii\web\View */
 
 $this->title = 'Каталог';
+use app\widgets\catalogpager\CatalogPager;
 
 ?>
 <main class="container container-catalog clearfix">
@@ -53,19 +54,12 @@ $this->title = 'Каталог';
                 </article>
             <?php } ?>
         </div>
-<!--        <ul class="pagination">-->
-<!--            <li>-->
-<!--                <a class="btn" href="/">1</a>-->
-<!--            </li>-->
-<!--            <li class="active">-->
-<!--                2-->
-<!--            </li>-->
-<!--            <li>-->
-<!--                <a class="btn" href="/">3</a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--                <a class="btn" href="/">4</a>-->
-<!--            </li>-->
-<!--        </ul>-->
+
+        <?php
+            echo CatalogPager::widget([
+                'pagination' => $pages,
+                'linkOptions' => ['class' => 'btn']
+            ]);
+        ?>
     </div>
 </main>
