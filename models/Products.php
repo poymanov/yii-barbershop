@@ -26,7 +26,7 @@ class Products extends \yii\db\ActiveRecord
     /**
      * Путь страницы каталога, для формирования url товаров
      */
-   public $catalogUrl = 'catalog';
+   public $catalogUrl = '/catalog';
 
     /**
      * @inheritdoc
