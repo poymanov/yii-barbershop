@@ -27,6 +27,8 @@ use app\widgets\catalogpager\CatalogPager;
             </div>
             <div class="group-filter">
                 <h2 class="filter-title">Группы товаров:</h2>
+                <input type="radio" name="item-group" value="item-0" id="radio-0" checked>
+                <label for="radio-0">Все группы</label>
                 <?php foreach($categories as $category) {?>
                     <input type="radio" name="item-group" value="item-<?=$category->id?>" id="radio-<?=$category->id?>">
                     <label for="radio-<?=$category->id?>"><?=$category->name?></label>
@@ -40,16 +42,16 @@ use app\widgets\catalogpager\CatalogPager;
             <?php foreach($products as $product) {?>
                 <article class="item">
                     <div class="item-photo">
-                        <a href="/">
+                        <a href="<?=$product->getProductUrl()?>">
                             <img src="/img/item-1.jpg" width="220" height="165" alt="<?=$product->name?>">
                         </a>
                     </div>
                     <div class="item-title">
-                        <a href="/"><?=$product->name?></a>
+                        <a href="<?=$product->getProductUrl()?>"><?=$product->name?></a>
                     </div>
                     <div class="item-buy">
                         <div class="item-price"><?=$product->price?> руб.</div>
-                        <a class="btn" href="#">Купить</a>
+                        <a class="btn" href="<?=$product->getProductUrl()?>">Купить</a>
                     </div>
                 </article>
             <?php } ?>

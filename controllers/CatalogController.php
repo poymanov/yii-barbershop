@@ -21,7 +21,7 @@ class CatalogController extends Controller
 
         // Получение всех товаров
         $products = Products::find()->all();
-
+        
         $query = Products::find();
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize' => 6]);

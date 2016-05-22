@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use app\models\Categories;
 use Yii;
 
 /**
@@ -22,6 +23,11 @@ use Yii;
  */
 class Products extends \yii\db\ActiveRecord
 {
+    /**
+     * Путь страницы каталога, для формирования url товаров
+     */
+   public $catalogUrl = 'catalog';
+
     /**
      * @inheritdoc
      */
@@ -69,7 +75,8 @@ class Products extends \yii\db\ActiveRecord
      */
     public function getCategory()
     {
-        return $this->hasOne(Categories::className(), ['id' => 'category_id']);
+//        return $this->hasOne(Categories::className(), ['id' => 'category_id']);
+        return Categories::findOne($this->category_id);
     }
 
     /**
@@ -78,5 +85,14 @@ class Products extends \yii\db\ActiveRecord
     public function getManufacturer()
     {
         return $this->hasOne(Manufacturers::className(), ['id' => 'manufacturer_id']);
+    }
+
+    /**
+     * Получение url для продукта, с учетом его категории
+     */
+    public function getProductUrl()
+    {
+        $category = $this->getCategory();
+        return $this->catalogUrl."/".$category->slug."/".$this->slug;
     }
 }
