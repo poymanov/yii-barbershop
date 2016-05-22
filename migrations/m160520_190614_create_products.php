@@ -1,6 +1,7 @@
 <?php
 
 use yii\db\Migration;
+use php_rutils\RUtils;
 
 /**
  * Handles the creation for table `products`.
@@ -15,6 +16,7 @@ class m160520_190614_create_products extends Migration
         $this->createTable('products', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
+            'slug' => $this->string()->notNull(),
             'description' => $this->text(),
             'available' => $this->boolean()->defaultValue(0),
             'image' => $this->string(),
@@ -203,6 +205,7 @@ class m160520_190614_create_products extends Migration
         foreach ($products as $product) {
             $this->insert('products',array(
                     'name' => $product['name'],
+                    'slug' => RUtils::translit()->slugify($product['name']),
                     'description' => $product['description'],
                     'available' => $product['available'],
                     'sku' => $product['sku'],

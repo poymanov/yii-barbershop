@@ -1,6 +1,7 @@
 <?php
 
 use yii\db\Migration;
+use php_rutils\RUtils;
 
 /**
  * Handles the creation for table `table_manufacturers`.
@@ -14,7 +15,8 @@ class m160520_175334_create_table_manufacturers extends Migration
     {
         $this->createTable('manufacturers', [
             'id' => $this->primaryKey(),
-            'name' => $this->string()->notNull()
+            'name' => $this->string()->notNull(),
+            'slug' => $this->string()->notNull()
         ]);
 
         // Начальные данные
@@ -29,8 +31,12 @@ class m160520_175334_create_table_manufacturers extends Migration
         
         // Заполнение таблицы начальными данными
         foreach ($manufacturers as $manufacturer) {
-            $this->insert('manufacturers',array(
-                'name' => $manufacturer));
+            $this->insert('manufacturers',
+                array(
+                    'name' => $manufacturer,
+                    'slug' => RUtils::translit()->slugify($manufacturer)
+                )
+            );
         }
     }
 
