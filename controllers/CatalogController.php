@@ -21,7 +21,7 @@ class CatalogController extends Controller
 
         // Получение всех товаров
         $products = Products::find()->all();
-        
+
         $query = Products::find();
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize' => 6]);
@@ -30,5 +30,35 @@ class CatalogController extends Controller
             ->all();
 
         return $this->render('index',compact('manufacturers','categories','products','pages'));
+    }
+
+    public function actionShow($categorySlug,$productSlug)
+    {
+        // Получение товара по псевдониму
+        $product = Products::find()->where(['slug'=>$productSlug])->one();
+
+        // 404 ошибка, если товар не существует
+        if(!$product) {
+            throw new \yii\web\HttpException('404','Товар не существует');
+            return;
+        }
+        
+        // Получение категории по псевдониму
+        $category = Categories::find()->where(['slug'=>$categorySlug])->one();
+
+        // 404 ошибка, если категория не найдена
+        if(!$category) {
+            throw new \yii\web\HttpException('404','Товар не существует');
+            return;
+        }
+
+        // 404 ошибка, если категория из запроса не соответствует категории продукта
+        if($product->category_id != $category->id) {
+            throw new \yii\web\HttpException('404','Товар не существует');
+            return;
+        }
+
+        return $this->render('show',compact('product','category'));
+
     }
 }

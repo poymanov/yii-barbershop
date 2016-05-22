@@ -51,7 +51,8 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 'prices' => 'site/price',
-                'catalog' => 'catalog/index'
+                'catalog' => 'catalog/index',
+                'catalog/<categorySlug>/<productSlug>' => 'catalog/show'
             ]
         ]
     ],
