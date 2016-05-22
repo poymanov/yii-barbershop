@@ -11,7 +11,7 @@ use app\models\Products;
 
 class CatalogController extends Controller
 {
-    public function actionIndex() 
+    public function actionIndex($categorySlug = null)
     {
         // Получение списка всех производителей
         $manufacturers = Manufacturers::find()->all();
@@ -19,23 +19,40 @@ class CatalogController extends Controller
         // Получение списка всех категорий товаров
         $categories = Categories::find()->all();
 
-        // Получение всех товаров
-        $products = Products::find()->all();
+        $category = null;
 
-        $query = Products::find();
+        // Если указана категория, то получаем товары только по ней
+        if($categorySlug) {
+            // Получение категории по псевдониму
+            $category = Categories::find()->where(['slug' => $categorySlug])->one();
+
+            // 404 ошибка, если категория не найдена
+            if(!$category) {
+                throw new \yii\web\HttpException('404','Товар не существует');
+                return;
+            }
+
+            // Получение товаров по категории
+            $query = Products::find()->where(['category_id' => $category->id]);
+
+        } else {
+            // Получение всех товаров
+            $query = Products::find();
+        }
+
         $countQuery = clone $query;
         $pages = new Pagination(['totalCount' => $countQuery->count(),'pageSize' => 6]);
         $products = $query->offset($pages->offset)
             ->limit($pages->limit)
             ->all();
 
-        return $this->render('index',compact('manufacturers','categories','products','pages'));
+        return $this->render('index',compact('manufacturers','categories','products','pages','category'));
     }
 
     public function actionShow($categorySlug,$productSlug)
     {
         // Получение товара по псевдониму
-        $product = Products::find()->where(['slug'=>$productSlug])->one();
+        $product = Products::find()->where(['slug' => $productSlug])->one();
 
         // 404 ошибка, если товар не существует
         if(!$product) {
@@ -44,7 +61,7 @@ class CatalogController extends Controller
         }
         
         // Получение категории по псевдониму
-        $category = Categories::find()->where(['slug'=>$categorySlug])->one();
+        $category = Categories::find()->where(['slug' => $categorySlug])->one();
 
         // 404 ошибка, если категория не найдена
         if(!$category) {

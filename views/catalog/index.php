@@ -1,8 +1,13 @@
 <?php
 
 /* @var $this yii\web\View */
+// Title для конкретной категории, если она существует
+if($category) {
+    $this->title = $category->name;
+} else {
+    $this->title = 'Каталог';
+}
 
-$this->title = 'Каталог';
 use app\widgets\catalogpager\CatalogPager;
 
 ?>
@@ -13,8 +18,13 @@ use app\widgets\catalogpager\CatalogPager;
             <a href="/">Главная</a>
         </li>
         <li>
-            <a href="#">Магазин</a>
+            <a href="/catalog">Магазин</a>
         </li>
+        <?php if($category) {?>
+            <li>
+                <?=$category->name?>
+            </li>
+        <?php } ?>
     </ul>
     <div class="filter-container">
         <form class="filter-form" action="https://echo.htmlacademy.ru" method="post">
