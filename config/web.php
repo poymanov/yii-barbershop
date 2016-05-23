@@ -52,6 +52,7 @@ $config = [
             'rules' => [
                 'prices' => 'site/price',
                 'catalog' => 'catalog/index',
+                'catalog/search' => 'catalog/search',
                 'catalog/<categorySlug>' => 'catalog/index',
                 'catalog/<categorySlug>/<productSlug>' => 'catalog/show'
             ]

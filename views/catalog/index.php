@@ -9,6 +9,7 @@ if($curCategory) {
 }
 
 use app\widgets\catalogpager\CatalogPager;
+use yii\helpers\Url;
 
 ?>
 <main class="container container-catalog clearfix">
@@ -27,7 +28,8 @@ use app\widgets\catalogpager\CatalogPager;
         <?php } ?>
     </ul>
     <div class="filter-container">
-        <form class="filter-form" action="https://echo.htmlacademy.ru" method="post">
+        <form class="filter-form" action="<?=Url::toRoute(['catalog/search'])?>" method="post">
+            <input type="hidden" name="_csrf" value="<?=Yii::$app->request->getCsrfToken()?>" />
             <div class="brand-filter">
                 <h2 class="filter-title">Производители:</h2>
                 <?php foreach($manufacturers as $manufacturer) {?>
@@ -37,7 +39,7 @@ use app\widgets\catalogpager\CatalogPager;
             </div>
             <div class="group-filter">
                 <h2 class="filter-title">Группы товаров:</h2>
-                <input type="radio" name="item-group" value="item-0" id="radio-0" checked>
+                <input type="radio" name="category" value="0" id="radio-0" checked>
                 <label for="radio-0">Все группы</label>
                 <?php foreach($categories as $category) {?>
                     <?php
@@ -47,7 +49,7 @@ use app\widgets\catalogpager\CatalogPager;
                             $checked = "checked";
                         }
                     ?>
-                    <input type="radio" <?=$checked ?> name="item-group" value="item-<?=$category->id?>" id="radio-<?=$category->id?>">
+                    <input type="radio" <?=$checked ?> name="category" value="<?=$category->id?>" id="radio-<?=$category->id?>">
                     <label for="radio-<?=$category->id?>"><?=$category->name?></label>
                 <?php } ?>
             </div>

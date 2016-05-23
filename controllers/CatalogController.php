@@ -78,4 +78,32 @@ class CatalogController extends Controller
         return $this->render('show',compact('product','category'));
 
     }
+
+    public function actionSearch()
+    {
+        // Получение post-параметров
+        $request = Yii::$app->request;
+        $post = $request->post();
+
+        // Получение id категории
+        $category_id = $post['category'];
+
+
+        // Для id = 0 перенаправление на страницу со всеми категориями
+        if ($category_id == 0) {
+            return Yii::$app->getResponse()->redirect('/catalog/');
+        }
+
+        // Поиск категории по id
+        $category = Categories::findOne($category_id);
+
+        // 404 ошибка, если категория не найдена
+        if(!$category) {
+            throw new \yii\web\HttpException('404','Категория не существует');
+            return;
+        }
+
+        // Перенаправление на страницу категории
+        return Yii::$app->getResponse()->redirect('/catalog/'.$category->slug);
+    }
 }
