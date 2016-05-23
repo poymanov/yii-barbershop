@@ -2,8 +2,8 @@
 
 /* @var $this yii\web\View */
 // Title для конкретной категории, если она существует
-if($category) {
-    $this->title = $category->name;
+if($curCategory) {
+    $this->title = $curCategory->name;
 } else {
     $this->title = 'Каталог';
 }
@@ -20,9 +20,9 @@ use app\widgets\catalogpager\CatalogPager;
         <li>
             <a href="/catalog">Магазин</a>
         </li>
-        <?php if($category) {?>
+        <?php if($curCategory) {?>
             <li>
-                <?=$category->name?>
+                <?=$curCategory->name?>
             </li>
         <?php } ?>
     </ul>
@@ -40,7 +40,14 @@ use app\widgets\catalogpager\CatalogPager;
                 <input type="radio" name="item-group" value="item-0" id="radio-0" checked>
                 <label for="radio-0">Все группы</label>
                 <?php foreach($categories as $category) {?>
-                    <input type="radio" name="item-group" value="item-<?=$category->id?>" id="radio-<?=$category->id?>">
+                    <?php
+                        $checked = "";
+
+                        if ($curCategory && $curCategory->id == $category->id) {
+                            $checked = "checked";
+                        }
+                    ?>
+                    <input type="radio" <?=$checked ?> name="item-group" value="item-<?=$category->id?>" id="radio-<?=$category->id?>">
                     <label for="radio-<?=$category->id?>"><?=$category->name?></label>
                 <?php } ?>
             </div>

@@ -19,21 +19,21 @@ class CatalogController extends Controller
         // Получение списка всех категорий товаров
         $categories = Categories::find()->all();
 
-        $category = null;
+        $curCategory = null;
 
         // Если указана категория, то получаем товары только по ней
         if($categorySlug) {
             // Получение категории по псевдониму
-            $category = Categories::find()->where(['slug' => $categorySlug])->one();
+            $curCategory = Categories::find()->where(['slug' => $categorySlug])->one();
 
             // 404 ошибка, если категория не найдена
-            if(!$category) {
+            if(!$curCategory) {
                 throw new \yii\web\HttpException('404','Товар не существует');
                 return;
             }
 
             // Получение товаров по категории
-            $query = Products::find()->where(['category_id' => $category->id]);
+            $query = Products::find()->where(['category_id' => $curCategory->id]);
 
         } else {
             // Получение всех товаров
@@ -46,7 +46,7 @@ class CatalogController extends Controller
             ->limit($pages->limit)
             ->all();
 
-        return $this->render('index',compact('manufacturers','categories','products','pages','category'));
+        return $this->render('index',compact('manufacturers','categories','products','pages','curCategory'));
     }
 
     public function actionShow($categorySlug,$productSlug)
