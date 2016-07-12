@@ -1,0 +1,12 @@
+.modal-form .help-block-error{
+    color: #ff0000;
+}
+
+.modal-close {
+    cursor: pointer;
+}
+
+.remember-checked::before {
+    background: #f9f6f3 url("../img/sprite.png") no-repeat;
+    background-position: -5px -252px;
+}

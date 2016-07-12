@@ -107,6 +107,22 @@ class SiteController extends Controller
         }
     }
 
+    public function actionUserLogin() {
+
+        if (Yii::$app->request->isAjax) {
+            $model = new LoginForm();
+            
+            if ($model->load(Yii::$app->request->post())) {
+
+                if ($model->login()) {
+                    return $this->goHome();
+                } else {
+                    return json_encode($model->errors);
+                }
+            }
+        }
+    }
+
     public function actionLogout()
     {
         Yii::$app->user->logout();
