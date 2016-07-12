@@ -37,5 +37,11 @@ use yii\helpers\Url;
                 <a class="login" href="<?=Url::to(['site/login'])?>">Вход</a>
             <?php } ?>
         </div>
+
+        <?php if (!Yii::$app->user->identity) {?>
+            <div class="user-block">
+                <a class="signup" href="<?=Url::to(['site/signup'])?>">Регистрация</a>
+            </div>
+        <?php } ?>
     </div>
 </header>

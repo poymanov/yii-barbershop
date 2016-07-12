@@ -24,6 +24,8 @@
 </footer>
 
 <?=$this->render('userModalForm');?>
+<?=$this->render('userModalSignup');?>
+<?=$this->render('userModalSuccessReg');?>
 
 <div class="modal-map">
     <button class="modal-close" type="button" title="Закрыть"></button>

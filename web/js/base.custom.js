@@ -13,7 +13,7 @@ $( document ).ready(function() {
             type: 'POST',
             data: $(this).serialize(),
             success: function(res){
-                
+
                 var errors = JSON.parse(res);
 
                 if (errors) {
@@ -33,7 +33,60 @@ $( document ).ready(function() {
                 $('.modal-login').addClass("error");
             }
         });
-    })
+    });
+
+    $('#signup-form').on('submit',function (e) {
+        e.preventDefault();
+
+        // Очистка полей с ошибками
+        $('.field-signupform-username .help-block.help-block-error').text('');
+        $('.field-signupform-email .help-block.help-block-error').text('');
+        $('.field-signupform-password .help-block.help-block-error').text('');
+        $('.modal-signup').removeClass("error");
+
+        $.ajax({
+            url: '/site/user-signup',
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function(res){
+
+                var data = JSON.parse(res);
+
+                if (data) {
+
+                    if (data.success) {
+                        $('.modal-signup').toggleClass('show-window');
+                        $('.modal-success-reg').toggleClass('show-window');
+                        $('.modal-success-reg-message').text(data.success);
+                    } else {
+
+                        // Ошибки, связанные с логином
+                        if (data.username) {
+                            $('.field-signupform-username').addClass('has-error');
+                            $('.field-signupform-username .help-block.help-block-error').text(data.username);
+                        }
+
+                        // Ошибки, связанные с e-mail
+                        if (data.email) {
+                            $('.field-signupform-email').addClass('has-error');
+                            $('.field-signupform-email .help-block.help-block-error').text(data.email);
+                        }
+
+                        // Ошибки, связанные с паролем
+                        if (data.password) {
+                            $('.field-signupform-password').addClass('has-error');
+                            $('.field-signupform-password .help-block.help-block-error').text(data.password);
+                        }
+
+                        $('.modal-signup').addClass("error");
+                    }
+
+                }
+
+
+            }
+        });
+    });
 
     $('a.login').on('click',function () {
         $('#login-form input[type=text]').val('');
@@ -41,8 +94,21 @@ $( document ).ready(function() {
         $('.field-loginform-password .help-block.help-block-error').text('');
     });
 
+    $('a.signup').on('click',function () {
+        $('#signup-form input[type=text]').val('');
+        $('#signup-form input[type=password]').val('');
+        $('.field-signupform-username .help-block.help-block-error').text('');
+        $('.field-signupform-email .help-block.help-block-error').text('');
+        $('.field-signupform-password .help-block.help-block-error').text('');
+    });
+
     $('#remember').on('click',function () {
         $('label[for="remember"]').toggleClass('remember-checked');
     });
+
+    $('.modal-close').on('click',function () {
+        $('.modal-user').removeClass('show-window');
+        $('.modal-user').removeClass('error');
+    })
 
 });

@@ -12,7 +12,7 @@ $model = new LoginForm();
 
 ?>
 
-<div class="modal-login">
+<div class="modal-user modal-login">
     <button class="modal-close" type="button" title="Закрыть"></button>
     <h2>Личный кабинет</h2>
     <p>

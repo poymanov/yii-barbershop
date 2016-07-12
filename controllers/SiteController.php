@@ -50,11 +50,7 @@ class SiteController extends Controller
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
-            ],
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
+            ]
         ];
     }
 
@@ -111,7 +107,7 @@ class SiteController extends Controller
 
         if (Yii::$app->request->isAjax) {
             $model = new LoginForm();
-            
+
             if ($model->load(Yii::$app->request->post())) {
 
                 if ($model->login()) {
@@ -143,6 +139,20 @@ class SiteController extends Controller
         return $this->render('signup', [
             'model' => $model,
         ]);
+    }
+
+    public function actionUserSignup()
+    {
+        if (Yii::$app->request->isAjax) {
+            $model = new SignupForm();
+            if ($model->load(Yii::$app->request->post())) {
+                if ($user = $model->signup()) {
+                    return json_encode(['success' => 'Подтвердите ваш электронный адрес']);
+                } else {
+                    return json_encode($model->errors);
+                }
+            }
+        }
     }
 
     public function actionEmailConfirm($token)

@@ -69,7 +69,8 @@ h2 {
     max-width: 140px;
 }
 
-.login {
+.login,
+.signup {
     position: relative;
     display: inline-block;
     padding: 25px 20px;
@@ -523,7 +524,7 @@ h2 {
 }
 
 .filter-form label,
-.modal-login label {
+.modal-user label {
     position: relative;
     display: block;
     color: #000000;
@@ -533,7 +534,7 @@ h2 {
 }
 
 .filter-form label::before,
-.modal-login label::before {
+.modal-user label::before {
     content: "";
     position: absolute;
     top: 2px;
@@ -549,7 +550,7 @@ h2 {
 }
 
 .brand-filter input:checked + label::before,
-.modal-login input:checked + label::before {
+.modal-user input:checked + label::before {
     background: #f9f6f3 url("../img/sprite.png") no-repeat;
     background-position: -5px -252px;
 }
@@ -894,7 +895,7 @@ h2 {
 
 /*====================================MODAL-WINDOWS==================================*/
 
-.modal-login {
+.modal-user {
     position: fixed;
     z-index: 100;
     display: none;
@@ -910,7 +911,7 @@ h2 {
     box-shadow: 0 30px 50px rgba(0, 0, 0, 0.75);
 }
 
-.modal-login.error {
+.modal-user.error {
     animation: error 0.5s;
 }
 
@@ -932,13 +933,13 @@ h2 {
     transform: rotate(45deg);
 }
 
-.modal-login h2 {
+.modal-user h2 {
     margin: 0;
     margin-bottom: 20px;
 }
 
-.modal-login input[type="text"],
-.modal-login input[type="password"] {
+.modal-user input[type="text"],
+.modal-user input[type="password"] {
     display: block;
     width: 241px;
     padding: 8px 40px 8px 15px;
@@ -961,16 +962,16 @@ h2 {
     background-position: 97% -360px;
 }
 
-.modal-login input[type="text"]:focus,
-.modal-login input[type="password"]:focus {
+.modal-user input[type="text"]:focus,
+.modal-user input[type="password"]:focus {
     border-color: #663d15;
 }
 
-.modal-login input[type="checkbox"] {
+.modal-user input[type="checkbox"] {
     display: none;
 }
 
-.modal-login label {
+.modal-user label {
     padding-left: 30px;
     float: left;
     margin-top: 5px;
@@ -982,7 +983,7 @@ h2 {
     margin-top: 5px;
 }
 
-.modal-login .btn {
+.modal-user .btn {
     width: 100%;
     clear: both;
 }
