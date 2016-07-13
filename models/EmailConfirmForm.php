@@ -4,6 +4,7 @@ namespace app\models;
 
 use yii\base\Model;
 use Yii;
+use yii\base\InvalidParamException;
 
 class EmailConfirmForm extends Model
 {

@@ -160,13 +160,14 @@ class SiteController extends Controller
         try {
             $model = new EmailConfirmForm($token);
         } catch (InvalidParamException $e) {
-            throw new BadRequestHttpException($e->getMessage());
+            Yii::$app->getSession()->setFlash('errorConfirm', 'Ошибка подтверждения Email :(');
+            return $this->goHome();
         }
 
         if ($model->confirmEmail()) {
-            Yii::$app->getSession()->setFlash('success', 'Спасибо! Ваш Email успешно подтверждён.');
+            Yii::$app->getSession()->setFlash('successConfirm', 'Спасибо! Ваш Email успешно подтверждён!');
         } else {
-            Yii::$app->getSession()->setFlash('error', 'Ошибка подтверждения Email.');
+            Yii::$app->getSession()->setFlash('errorConfirm', 'Ошибка подтверждения Email :(');
         }
 
         return $this->goHome();
