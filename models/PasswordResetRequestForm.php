@@ -4,6 +4,7 @@ namespace app\models;
 
 use yii\base\Model;
 use Yii;
+use app\models\User;
 
 /**
  * Password reset request form
@@ -21,9 +22,9 @@ class PasswordResetRequestForm extends Model
             ['email', 'required'],
             ['email', 'email'],
             ['email', 'exist',
-                'targetClass' => '\common\models\User',
+                'targetClass' => 'app\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],
-                'message' => 'There is no user with such email.'
+                'message' => 'Пользователя с подобным e-mail не существует.'
             ],
         ];
     }
@@ -52,7 +53,7 @@ class PasswordResetRequestForm extends Model
         return Yii::$app
             ->mailer
             ->compose(
-                ['html' => 'passwordResetToken-html', 'text' => 'passwordResetToken-text'],
+                ['html' => 'passwordResetToken'],
                 ['user' => $user]
             )
             ->setFrom([Yii::$app->params['supportEmail'] => Yii::$app->name . ' robot'])

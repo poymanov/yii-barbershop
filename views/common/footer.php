@@ -26,6 +26,7 @@
 <?=$this->render('userModalForm');?>
 <?=$this->render('userModalSignup');?>
 <?=$this->render('userModalSuccessReg');?>
+<?=$this->render('userModalPasswordRequest');?>
 
 <?php
     if (Yii::$app->getSession()->hasFlash('successConfirm')) {

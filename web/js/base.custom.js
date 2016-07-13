@@ -88,6 +88,48 @@ $( document ).ready(function() {
         });
     });
 
+    $('#password-request-form').on('submit',function (e) {
+        e.preventDefault();
+
+        $('.field-passwordresetrequestform-email .help-block.help-block-error').text('');
+        $('.modal-password-request').removeClass("error");
+
+        $.ajax({
+            url: '/site/user-password-reset-request',
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function(res){
+
+                var data = JSON.parse(res);
+
+                if (data) {
+
+                    if (data.success) {
+                        $('.modal-password-request').toggleClass('show-window');
+                        $('.modal-success-reg').toggleClass('show-window');
+                        $('.modal-success-reg-message').text(data.success);
+                        $('.modal-success-reg-header').text(data.successHeader);
+                    } else {
+                        
+                        // Ошибки, связанные с e-mail
+                        if (data.email) {
+                            $('.field-passwordresetrequestform-email').addClass('has-error');
+                            $('.field-passwordresetrequestform-email .help-block.help-block-error').text(data.email);
+                        }
+                        
+                        $('.modal-password-request').addClass("error");
+                    }
+
+                }
+
+
+            }
+        });
+    });
+
+
+
+
     $('a.login').on('click',function () {
         $('#login-form input[type=text]').val('');
         $('.field-loginform-username .help-block.help-block-error').text('');
@@ -109,6 +151,11 @@ $( document ).ready(function() {
     $('.modal-close').on('click',function () {
         $('.modal-user').removeClass('show-window');
         $('.modal-user').removeClass('error');
+    });
+
+    $('.forget-password').on('click',function () {
+        $('#password-request-form input[type=text]').val('');
+        $('.field-passwordresetrequestform-email .help-block.help-block-error').text('');
     })
 
 });

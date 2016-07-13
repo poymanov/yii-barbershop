@@ -191,6 +191,22 @@ class SiteController extends Controller
         ]);
     }
 
+    public function actionUserPasswordResetRequest()
+    {
+        if (Yii::$app->request->isAjax) {
+            $model = new PasswordResetRequestForm();
+            if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+                if ($model->sendEmail()) {
+                    return json_encode(['success' => 'На ваш Email было отправлено письмо со ссылкой на восстановление пароля.', 'successHeader' => 'Восстановление пароля']);
+                } else {
+                    return json_encode($model->errors);
+                }
+            } else {
+                return json_encode($model->errors);
+            }
+        }
+    }
+
     public function actionPasswordReset($token)
     {
         try {
