@@ -5,7 +5,6 @@ namespace app\controllers;
 use Yii;
 use yii\web\Controller;
 use yii\data\Pagination;
-use app\models\Manufacturers;
 use app\models\Categories;
 use app\models\Products;
 
@@ -13,12 +12,7 @@ class CatalogController extends Controller
 {
     public function actionIndex($categorySlug = null)
     {
-        // Получение списка всех производителей
-        $manufacturers = Manufacturers::find()->all();
-
-        // Получение списка всех категорий товаров
-        $categories = Categories::find()->all();
-
+        
         $curCategory = null;
 
         // Получение get-параметров для запроса
@@ -67,7 +61,7 @@ class CatalogController extends Controller
             ->limit($pages->limit)
             ->all();
 
-        return $this->render('index',compact('manufacturers','categories','products','pages','curCategory','manufacturersId'));
+        return $this->render('index',compact('products','pages','curCategory','manufacturersId'));
     }
 
     public function actionShow($categorySlug,$productSlug)
