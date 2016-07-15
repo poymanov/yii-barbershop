@@ -2,6 +2,8 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Url;
+
 $this->title = $product->name;
 
 ?>
@@ -59,7 +61,7 @@ $this->title = $product->name;
         </section>
         <div class="item-buy">
             <div class="item-price"><?=$product->price?> руб.</div>
-            <a class="btn" href="#">Купить</a>
+            <a class="btn btn-to-cart" data-id="<?=$product->id?>" href="<?=Url::to(['cart/add','id' => $product->id])?>">Купить</a>
         </div>
         <section class="item-about">
             <b>В набор входят:</b>

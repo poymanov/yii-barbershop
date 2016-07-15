@@ -1,6 +1,12 @@
 <?php
 
 /* @var $this yii\web\View */
+
+use app\widgets\catalogpager\CatalogPager;
+use app\widgets\CatalogFilter\CatalogFilter;
+use yii\helpers\Url;
+
+
 // Title для конкретной категории, если она существует
 if($curCategory) {
     $this->title = $curCategory->name;
@@ -8,9 +14,8 @@ if($curCategory) {
     $this->title = 'Каталог';
 }
 
-use app\widgets\catalogpager\CatalogPager;
-use app\widgets\CatalogFilter\CatalogFilter;
 ?>
+
 <main class="container container-catalog clearfix">
     <h1 class="index-title">Средства для ухода</h1>
     <ul class="breadcrumbs">
@@ -44,7 +49,7 @@ use app\widgets\CatalogFilter\CatalogFilter;
                     </div>
                     <div class="item-buy">
                         <div class="item-price"><?=$product->price?> руб.</div>
-                        <a class="btn" href="<?=$product->getProductUrl()?>">Купить</a>
+                        <a class="btn btn-to-cart" data-id="<?=$product->id?>" href="<?=Url::to(['cart/add','id' => $product->id])?>">Купить</a>
                     </div>
                 </article>
             <?php } ?>

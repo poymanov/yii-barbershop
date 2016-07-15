@@ -128,7 +128,43 @@ $( document ).ready(function() {
     });
 
 
+    $('.btn-to-cart').on('click',function (e) {
+        e.preventDefault();
 
+        var id = $(this).data('id');
+
+        $('.modal-cart-header').text('');
+        $('.modal-cart-text').text('');
+
+        $.ajax({
+            url: '/cart/add',
+            type: 'GET',
+            data: {id: id},
+            success: function(res){
+                var data = JSON.parse(res);
+
+                $('.modal-cart').toggleClass('show-window');
+                $('.modal-cart-header').text(data.msgHeader);
+                $('.modal-cart-text').text(data.msgText);
+
+            }
+        });
+
+    });
+
+    $('.cart-input').on('change',function (e) {
+        e.preventDefault();
+
+        var id = $(this).data('id');
+        var qty = $(this).val();
+
+        $.ajax({
+            url: '/cart/change',
+            type: 'GET',
+            data: {id: id, qty: qty},
+        });
+
+    });
 
     $('a.login').on('click',function () {
         $('#login-form input[type=text]').val('');

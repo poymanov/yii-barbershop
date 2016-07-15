@@ -10,3 +10,9 @@
     background: #f9f6f3 url("../img/sprite.png") no-repeat;
     background-position: -5px -252px;
 }
+
+.cart-input {
+    text-align: center;
+    width: 40px;
+    border: 2px solid #000000;
+}

@@ -889,6 +889,14 @@ h2 {
     text-align: center;
 }
 
+.cart-table {
+    width: 100%;
+}
+
+.cart-table td {
+    text-align: center;
+}
+
 .short-text {
     padding-right: 70px;
 }

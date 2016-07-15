@@ -43,5 +43,9 @@ use yii\helpers\Url;
                 <a class="signup" href="<?=Url::to(['site/signup'])?>">Регистрация</a>
             </div>
         <?php } ?>
+
+        <div class="user-block">
+            <a href="<?=Url::to(['/cart'])?>">Корзина</a>
+        </div>
     </div>
 </header>
