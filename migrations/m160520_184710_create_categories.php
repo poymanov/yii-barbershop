@@ -18,20 +18,6 @@ class m160520_184710_create_categories extends Migration
             'name' => $this->string()->notNull(),
             'slug' => $this->string()->notNull()
         ]);
-
-        // Начальные данные
-        $categories = array('Бритвенные принадлежности', 'Средства для ухода', 'Аксессуары');
-
-
-        // Заполнение таблицы начальными данными
-        foreach ($categories as $category) {
-            $this->insert('categories',
-                array(
-                    'name' => $category,
-                    'slug' => RUtils::translit()->slugify($category)
-                )
-            );
-        }
     }
 
     /**
