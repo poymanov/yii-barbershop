@@ -38,5 +38,6 @@ class m160520_190614_create_products extends Migration
         $this->dropForeignKey('pk_products_manufacturers','products');
         $this->dropForeignKey('pk_products_category','products');
         $this->dropTable('products');
+        return true;
     }
 }

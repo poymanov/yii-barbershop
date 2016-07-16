@@ -26,5 +26,6 @@ class m160520_184710_create_categories extends Migration
     public function down()
     {
         $this->dropTable('categories');
+        return true;
     }
 }

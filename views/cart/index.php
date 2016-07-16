@@ -67,9 +67,21 @@ $this->title = 'Корзина';
                     <td><?=$commonSum?></td>
                     <td><a class="btn" href="<?=Url::to(['cart/clear'])?>">Очистить</a></td>
                 </tr>
+                <tr>
+                    <td colspan="5"></td>
+                    <td>
+                        <a class="btn" href="<?=Url::to(['cart/checkout'])?>">Оформить заказ</a>
+                    </td>
+                </tr>
             </table>
         </div>
     <?php } else {?>
-        <h2>Товары отсутствуют</h2>
+        <?php
+            if (Yii::$app->session->hasFlash('successCart')) {
+                echo "<h2>" . Yii::$app->session->getFlash('successCart') . "</h2>";
+            } else {
+                echo "<h2>Товары отсутствуют</h2>";
+            }
+        ?>
     <?php } ?>
 </main>

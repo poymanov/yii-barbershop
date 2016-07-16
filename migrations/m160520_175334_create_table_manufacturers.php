@@ -25,5 +25,6 @@ class m160520_175334_create_table_manufacturers extends Migration
     public function down()
     {
         $this->dropTable('manufacturers');
+        return true;
     }
 }

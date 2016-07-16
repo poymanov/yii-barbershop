@@ -7,13 +7,32 @@
  */
 
 namespace app\controllers;
+use app\models\Orders;
 use app\models\Products;
 use Yii;
 use yii\web\Controller;
-
+use yii\filters\AccessControl;
+use app\models\OrdersItems;
 
 class CartController extends Controller
 {
+
+    public function behaviors()
+    {
+        return [
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['checkout'],
+                'rules' => [
+                    [
+                        'actions' => ['checkout'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ]
+                ],
+            ],
+        ];
+    }
 
     public function actionIndex() {
 
@@ -148,6 +167,70 @@ class CartController extends Controller
 
         $_SESSION['cart'][$id]['qty'] = $qty;
 
+        return $this->redirect('/cart');
+    }
+
+    public function actionCheckout()
+    {
+
+        $session = Yii::$app->session;
+        $session->open();
+
+        $cart = $session->get('cart');
+
+        // Проверка на заполненность корзины
+        if (empty($cart)) {
+            throw new \yii\web\HttpException('404','Корзина пуста');
+            return;
+        }
+
+        if (!Yii::$app->user->identity) {
+            throw new \yii\web\HttpException('403','Требуется авторизация');
+            return;
+        }
+
+        // Создаем заказ
+        $order = new Orders();
+        $order->user_id = Yii::$app->user->id;
+
+        // Валидируем модель
+        if (!$order->validate()) {
+            throw new \yii\web\HttpException('404','Ошибка проверки заказа');
+            return;
+        }
+
+        if (!$order->save()) {
+            throw new \yii\web\HttpException('404','Не удалось создать заказ');
+            return;
+        }
+
+        // Записываем корзину в базу
+        foreach ($cart as $id => $cartItem) {
+            $orderItems = new OrdersItems();
+            $orderItems->order_id = $order->id;
+            $orderItems->product_id = $id;
+            $orderItems->qty = $cartItem['qty'];
+            $orderItems->price = $cartItem['price'];
+
+            if (!$order->validate()) {
+                throw new \yii\web\HttpException('404','Ошибка оформления заказа');
+                return;
+            }
+
+            if (!$orderItems->save()) {
+                throw new \yii\web\HttpException('404','Ошибка сохранения заказа');
+                return;
+            }
+
+        }
+
+        // Очистка корзины
+        $session->remove('cart');
+
+        // Отправление сообщения покупателю
+
+        // Переадресация на страницу корзины
+        Yii::$app->session->setFlash('successCart','Заказ успешно оформлен');
         return $this->redirect('/cart');
     }
 
