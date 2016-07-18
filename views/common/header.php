@@ -32,7 +32,7 @@ use yii\helpers\Url;
         </nav>
         <div class="user-block">
             <?php if (Yii::$app->user->identity) {?>
-                <a href="<?=Url::to(['site/logout'])?>">Выход</a>
+                <a class="logout" href="<?=Url::to(['site/logout'])?>">Выход</a>
             <?php } else {?>
                 <a class="login" href="<?=Url::to(['site/login'])?>">Вход</a>
             <?php } ?>
@@ -45,7 +45,7 @@ use yii\helpers\Url;
         <?php } ?>
 
         <div class="user-block">
-            <a href="<?=Url::to(['/cart'])?>">Корзина</a>
+            <a class="cart-link" href="<?=Url::to(['/cart'])?>">Корзина</a>
         </div>
     </div>
 </header>

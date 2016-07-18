@@ -70,7 +70,9 @@ h2 {
 }
 
 .login,
-.signup {
+.signup,
+.cart-link,
+.logout {
     position: relative;
     display: inline-block;
     padding: 25px 20px;

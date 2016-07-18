@@ -16,3 +16,7 @@
     width: 40px;
     border: 2px solid #000000;
 }
+
+.inner-columns--margin {
+    margin: 0;
+}

@@ -226,9 +226,7 @@ class CartController extends Controller
 
         // Очистка корзины
         $session->remove('cart');
-
-        // Отправление сообщения покупателю
-
+        
         // Переадресация на страницу корзины
         Yii::$app->session->setFlash('successCart','Заказ успешно оформлен');
         return $this->redirect('/cart');

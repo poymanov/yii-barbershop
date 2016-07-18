@@ -49,9 +49,9 @@ class Orders extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getOrderItems()
+    public function getOrdersItems()
     {
-        return $this->hasMany(OrderItems::className(), ['order_id' => 'id']);
+        return $this->hasMany(OrdersItems::className(), ['order_id' => 'id']);
     }
 
     /**
