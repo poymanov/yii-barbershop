@@ -33,12 +33,8 @@ class EditInfoForm extends Model
 
             ['oldPassword', 'required'],
             ['oldPassword', 'validatePassword'],
-
-            ['newPassword', 'required'],
-
-            ['newPasswordRepeat', 'required'],
-
-            ['newPassword', 'compare', 'compareAttribute'=>'newPasswordRepeat', 'message'=>"Введенные пароли не совпадают" ],
+            
+            ['newPassword', 'compare', 'compareAttribute'=>'newPasswordRepeat', 'skipOnEmpty' => true, 'message'=>"Введенные пароли не совпадают" ],
             
         ];
     }
