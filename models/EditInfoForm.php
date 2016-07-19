@@ -33,8 +33,9 @@ class EditInfoForm extends Model
 
             ['oldPassword', 'required'],
             ['oldPassword', 'validatePassword'],
-            
-            ['newPassword', 'compare', 'compareAttribute'=>'newPasswordRepeat', 'skipOnEmpty' => true, 'message'=>"Введенные пароли не совпадают" ],
+
+            ['newPasswordRepeat','safe'],
+            ['newPassword', 'compare', 'compareAttribute'=>'newPasswordRepeat', 'operator'=>'==', 'skipOnEmpty' => true, 'message'=>"Введенные пароли не совпадают" ],
             
         ];
     }
@@ -54,6 +55,8 @@ class EditInfoForm extends Model
 
         $user = User::findOne(Yii::$app->user->identity->id);
         $user->username = $this->username;
+        $user->email = $this->email;
+        $user->password_hash = Yii::$app->security->generatePasswordHash($this->newPassword);
 
         if (!$user->validate()) {
             Yii::$app->session->setFlash('error','Ошибка проверки данных пользователя');
