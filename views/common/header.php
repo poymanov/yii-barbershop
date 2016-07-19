@@ -32,6 +32,7 @@ use yii\helpers\Url;
         </nav>
         <div class="user-block">
             <?php if (Yii::$app->user->identity) {?>
+                <a class="logout" href="<?=Url::to(['/profile'])?>">Профиль</a>
                 <a class="logout" href="<?=Url::to(['site/logout'])?>">Выход</a>
             <?php } else {?>
                 <a class="login" href="<?=Url::to(['site/login'])?>">Вход</a>

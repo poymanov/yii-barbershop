@@ -6,6 +6,7 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use app\models\Orders;
+use app\models\EditInfoForm;
 
 class ProfileController extends Controller
 {
@@ -14,10 +15,10 @@ class ProfileController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['index'],
+                'only' => ['index', 'order'],
                 'rules' => [
                     [
-                        'actions' => ['index'],
+                        'actions' => ['index', 'order'],
                         'allow' => true,
                         'roles' => ['@'],
                     ]
@@ -46,5 +47,21 @@ class ProfileController extends Controller
         }
 
         return $this->render('order',['order' => $order]);
+    }
+
+    public function actionInfo() {
+
+        $model = new EditInfoForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+
+            if ($model->saveUserData()) {
+                Yii::$app->session->setFlash('success','Данные успешно обновлены');
+            }
+
+            return $this->redirect(['info']);
+        }
+
+        return $this->render('info',['model' => $model]);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Url;
+use app\widgets\ProfileMenu\ProfileMenu;
 
 $this->title = 'Профиль';
 
@@ -18,12 +19,7 @@ $this->title = 'Профиль';
     </ul>
 
     <div class="filter-container">
-        <h2 class="filter-title">Меню:</h2>
-        <ul>
-            <li>
-                <a href="<?=Url::to(['/profile'])?>">Заказы</a>
-            </li>
-        </ul>
+        <?=ProfileMenu::widget()?>
     </div>
 
     <div class="item-container">

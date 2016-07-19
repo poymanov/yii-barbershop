@@ -1,5 +1,6 @@
 <?php
 
+use app\widgets\ProfileMenu\ProfileMenu;
 use yii\helpers\Url;
 
 $this->title = 'Заказ ' . $order->id;
@@ -13,7 +14,7 @@ $this->title = 'Заказ ' . $order->id;
             <a href="<?=Url::home()?>">Главная</a>
         </li>
         <li>
-            <a href="<?=Url::to(['/profile'])?>">Главная</a>
+            <a href="<?=Url::to(['/profile'])?>">Профиль</a>
         </li>
         <li>
             Заказ # <?=$order->id?>
@@ -21,12 +22,7 @@ $this->title = 'Заказ ' . $order->id;
     </ul>
 
     <div class="filter-container">
-        <h2 class="filter-title">Меню:</h2>
-        <ul>
-            <li>
-                <a href="<?=Url::to(['/profile'])?>">Заказы</a>
-            </li>
-        </ul>
+        <?=ProfileMenu::widget()?>
     </div>
 
     <div class="item-container">
@@ -50,7 +46,7 @@ $this->title = 'Заказ ' . $order->id;
                                     <?=$item->id?>
                                 </td>
                                 <td>
-                                    <?=$item->product_id?>
+                                    <?=$item->product->name?>
                                 </td>
                                 <td>
                                     <?=$item->qty?>
@@ -76,7 +72,7 @@ $this->title = 'Заказ ' . $order->id;
                             <td><?=$total?></td>
                         </tr>
                 <?php } else {?>
-                    <h2>В заказе отсутстуют товары :(</h2>
+                    <h2>В заказе отсутствуют товары :(</h2>
                 <?php } ?>
                 </table>
             </div>

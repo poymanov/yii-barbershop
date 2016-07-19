@@ -20,3 +20,19 @@
 .inner-columns--margin {
     margin: 0;
 }
+
+.edit-info-form {
+    color: #000;
+}
+
+.edit-info-form label {
+    margin-right: 25px;
+}
+
+.item-container .error {
+    color: #ff0000;
+}
+
+.item-container .success {
+    color: #00aa00;
+}
