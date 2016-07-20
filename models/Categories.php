@@ -9,6 +9,7 @@ use Yii;
  *
  * @property integer $id
  * @property string $name
+ * @property string $slug
  */
 class Categories extends \yii\db\ActiveRecord
 {
@@ -26,7 +27,7 @@ class Categories extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['name', 'slug'], 'required'],
             [['name'], 'string', 'max' => 255],
         ];
     }
@@ -39,6 +40,7 @@ class Categories extends \yii\db\ActiveRecord
         return [
             'id' => 'ID',
             'name' => 'Name',
+            'slug' => 'ЧПУ'
         ];
     }
 }

@@ -38,7 +38,8 @@ class Manufacturers extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Имя',
+            'slug' => 'ЧПУ',
         ];
     }
 }

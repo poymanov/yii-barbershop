@@ -42,7 +42,7 @@ class Products extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['name', 'slug'], 'required'],
             [['description'], 'string'],
             [['available', 'manufacturer_id', 'category_id'], 'integer'],
             [['price'], 'number'],
@@ -67,6 +67,7 @@ class Products extends \yii\db\ActiveRecord
             'price' => 'Price',
             'manufacturer_id' => 'Manufacturer ID',
             'category_id' => 'Category ID',
+            'slug' => 'ЧПУ'
         ];
     }
 

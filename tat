@@ -1,0 +1,342 @@
+[33mcommit 9f6d28aa8d72d2a25d0b0d770ef5329d9fbbd078[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Tue Jul 19 23:40:24 2016 +0300
+
+    Добавлена смена пароля пользователя
+
+[33mcommit ac130c48e2d167a4387f02cee28bc0679171a1a7[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Tue Jul 19 23:29:29 2016 +0300
+
+    [new] fix password validation
+    
+    * Исправлена валидация нового пароля и его повтора
+
+[33mcommit 0c6c19c7c9875748f420477b6df1dbb871523af6[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Tue Jul 19 22:24:57 2016 +0300
+
+    [new] add user info change view
+    
+    * Добавлена возможность изменять данные пользователя
+
+[33mcommit a09b4d743053ccaf8e5c2cc98dcbe9180bda7153[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Mon Jul 18 22:08:18 2016 +0300
+
+    [new] add profile page
+    
+    * Добавлена страница профиля пользователя
+    * Добавлена информация о заказах
+    * Добавлен вывод состава заказа
+
+[33mcommit 5a29a9e5e45ada4bbe3efd6f1ebbc7afd888349e[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Sat Jul 16 20:13:50 2016 +0300
+
+    [new] add cart checkout
+    
+    * Реализован функционал оформления заказа
+
+[33mcommit 17284ea686e09e797c52fee31bae5afe85c7af8d[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Sat Jul 16 14:04:35 2016 +0300
+
+    [new] add console test-data controller
+    
+    * Добавлен консольный контоллер для заполнения тестовыми данными
+    * Тестовые данные перенесены из миграций в консольный контроллер
+
+[33mcommit f3a5891da9dfc593a48acb0f48adaa4ae5309637[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri Jul 15 22:24:21 2016 +0300
+
+    [new] add cart functional
+    
+    * Реализован механизм добавления товаров в корзину
+    * Добавлена страница корзины
+
+[33mcommit 42c8b8f2d76d12f41caf68051c417049b4ffd68b[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Thu Jul 14 21:06:33 2016 +0300
+
+    [new] add widget for catalog filter
+    
+    * Добавлен виджет для фильтров на странице каталога
+
+[33mcommit fac91656da34bc6db0dddb956d850779fc9682ac[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Wed Jul 13 22:28:36 2016 +0300
+
+    [new] add password reset request
+    
+    * Добавлена возможность восстановления пароля по e-mail
+
+[33mcommit 93c87c239cbadfec21ad6e039ac5f109a1197d8c[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Wed Jul 13 21:16:02 2016 +0300
+
+    [new] add confirm e-mail modal window
+    
+    * Реализовано появление всплывающего окна с сообщением об успешном или неуспешном подтверждении e-mail
+
+[33mcommit 42c0766b9e84f9570415a10d8e502b79bb10c740[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Wed Jul 13 01:04:02 2016 +0300
+
+    [new] update vendors
+    
+    * Обновлен Yii2 до 2.0.9
+
+[33mcommit 13d87bdc4201188f3465b57b9b76e6fadec6e7cc[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Wed Jul 13 00:59:06 2016 +0300
+
+    [new] add signup modal form
+    
+    * Реализована ajax-регистрация через всплывающее окно
+
+[33mcommit 35ab3a02e0e73f43f80c4ad4e47cf147ff06e95a[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Tue Jul 12 23:41:58 2016 +0300
+
+    [new] add modal user login form
+    
+    * Реализована ajax-авторизация на сайте
+
+[33mcommit c7e46cb5e825d8cef04526cb857fba82e0cbba24[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Mon Jul 11 21:46:33 2016 +0300
+
+    [new] modify user model
+    
+    * Изменена модель пользователя
+    * Добавлен консольный контроллер для работы с пользователями
+
+[33mcommit f643d4fbbbdf864629b272dcfd140aebf28a9c87[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Mon May 23 23:27:50 2016 +0300
+
+    [refactor] pretty urls for pagination
+    
+    Реализованы ЧПУ для ссылок пагинации
+
+[33mcommit b6997eda0b3467d715e373908504649a9a717ead[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Mon May 23 23:22:39 2016 +0300
+
+    [new] add search by manufacturer
+    
+    Реализована возможность отбора по производителю
+
+[33mcommit ad8563123dd114e10e1a44979ccec5e5be7c4963[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Mon May 23 21:59:43 2016 +0300
+
+    [new] add search by category
+    
+    На странице категории реализован поиск по категории
+
+[33mcommit 9bc63adb79228c45577f983e2786fd4a6020034e[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Mon May 23 21:14:16 2016 +0300
+
+    [new] checked current category
+    
+    При посещении страницы определенной категории выделяется соответствующая радиокнопка
+
+[33mcommit d5ce927c3ff74cec679642c8eb1bc6a629a97314[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Sun May 22 15:55:12 2016 +0300
+
+    [fix] bugfix products url on catalog page
+    
+    Исправлено формирование url товара на страницах каталога
+
+[33mcommit 0543ec7b2ba916f45bf78e8e6bcdf8d94f2bd08f[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Sun May 22 15:43:34 2016 +0300
+
+    [new] display categories pages
+    
+    Реализовано отображение страниц конктретных категорий с их товарами
+
+[33mcommit f0d4f7c50f0472ddc92f61018e25c5259b3a535b[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Sun May 22 15:28:17 2016 +0300
+
+    [new] display product page
+    
+    Добавлено отображение карточки товара с данными из БД
+
+[33mcommit d808ac8a211abcca50cde354b9fd3905c6d76d3b[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Sun May 22 14:39:39 2016 +0300
+
+    [new] display products on catalog page
+    
+    Добавлено формирование и вывод url товара на странице каталога
+
+[33mcommit 5647ca3ae00de4f7068e806bb96c22f2c6858867[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Sun May 22 14:03:22 2016 +0300
+
+    [new] add translatization for demo data
+    
+    В миграции категорий, производителей, товаров добавлены url-псевдонимы в транслите
+
+[33mcommit 3526a4baede5081143937720588ea54296f18940[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Sun May 22 14:00:51 2016 +0300
+
+    [new] add phputils vendor library
+    
+    Добавлена библиотека для работы с транслитизацией
+
+[33mcommit 85175da52516fea365429c446cf2fa5be7e3da51[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Sat May 21 12:35:50 2016 +0300
+
+    [new] add pagination to catalog page
+    
+    На странице каталога реализована пагинация
+
+[33mcommit de8c93135fb7d56cf42473c3304c3e7824a88e66[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Sat May 21 00:10:35 2016 +0300
+
+    [new] add base data for migrations
+    
+    Добавлены демо данные для таблиц категорий, производителей, товаров
+
+[33mcommit 4f6e3fe31e7bc96dcf07561bf4d15a611b2e5bd3[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri May 20 22:54:10 2016 +0300
+
+    [new] add products object
+    
+    * Добавлена миграция для таблицы продуктов
+    * Добавлена модель
+    * Реализован CRUD
+    * Вывод всех товаров на странице категории
+
+[33mcommit 66e961695949321e302d43fe3e0386be636d6a00[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri May 20 21:59:32 2016 +0300
+
+    [new] add categories object
+    
+    * Добавлена миграции для таблицы категорий товара
+    * Добавлена модель
+    * Сгенерирован CRUD
+    * Вывод значений из БД на странице каталога
+
+[33mcommit a8a0480bb0b15d67bc0b6b2c5cb1c47dc040c283[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri May 20 21:44:53 2016 +0300
+
+    [new] display all manufacturers on catalog page
+    
+    Вывод из базы списка всех производителей в качестве фильтров на странице каталога
+
+[33mcommit b2e39423672031716b8373f1e92d5573a17c920e[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri May 20 21:25:27 2016 +0300
+
+    [new] add CRUD for manufacturers
+    
+    Сгенерированы объекты для CRUD производителей
+
+[33mcommit b8226cb6d6d2313f3a99574bf0bc08d8a4e59752[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri May 20 21:06:13 2016 +0300
+
+    [new] add migration for manufacturers
+    
+    Добавлена миграция для таблицы производителей
+
+[33mcommit 0f8126b799676519e177d032c2838c78a2d4d0e3[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri May 20 20:29:17 2016 +0300
+
+    [new] add controller catalog
+    
+    * Добавлен контроллер Catalog
+    * Перенесен шаблон в соответствующую директорию
+    * Ссылка на страницу каталога добавлена в главное меню
+
+[33mcommit b95e8b9cf3e5ecfce06a45b7535947a2408f0ba1[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri May 20 20:22:06 2016 +0300
+
+    [new] add route alias for prices page
+    
+    Добавлен псевдоним пути для страницы Прайс-лист
+    Ссылка на страницу добавлена в главное меню
+
+[33mcommit 2c32083d219438d9bb13819a6c08b168e4eea216[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri May 20 01:41:48 2016 +0300
+
+    [new] add statis product page
+    
+    Добавлена верстка страницы товара без динамических элементов
+
+[33mcommit 404d057085eba26252885e7d381e96973e02bf1d[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri May 20 01:36:28 2016 +0300
+
+    [new] add static catalog page
+    
+    Добавлена верстка страницы каталога без динамический элементов
+
+[33mcommit c9b930d02d5451225518e435d0da2e134668e257[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri May 20 01:31:05 2016 +0300
+
+    [new] add statis prices page
+    
+    Добавлена верстка страницы Прайс-лист
+
+[33mcommit 816b0f8d4abd5dad168006d525f549c6cdad3aa6[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri May 20 01:08:47 2016 +0300
+
+    [new] add statis index page
+    
+    Добавлена верстка главной страницы без динамических элементов
+
+[33mcommit 3bf58b2f29ce5e5a29ff4d872e8a0a50a7dc79e1[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri May 20 00:45:45 2016 +0300
+
+    [new] add base resources
+    
+    Добавлены базовые ресурсы верстки - css, js, images
+
+[33mcommit db96da2e1a085e714b567516f3a1f916bb41f7a5[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Fri May 20 00:36:27 2016 +0300
+
+    [new] add normalize.css
+    
+    Normalize.css установлен и подключен в базовый AssetBundle
+
+[33mcommit 0323a28e46f94dbda2759b889f6e54775fa14341[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Thu May 19 23:42:40 2016 +0300
+
+    [style] remove bootstrap from main layout
+    
+    Отключено использование Bootstrap для основного шаблона приложения
+    Изменен основной Asset приложения
+
+[33mcommit 2671d5c5c98ac467bf56f37a8ecc5396f19d925d[m
+Author: Nikolay <n.poymanov@gmail.com>
+Date:   Thu May 19 23:16:23 2016 +0300
+
+    [new] init project
+    
+    * Инициализация проекта
+    * Модификация .gitignore
+    * Реализован функционал объедения локальных настроек и общедоступных
