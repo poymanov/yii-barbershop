@@ -29,6 +29,7 @@ class ManufacturersController extends Controller
         ];
     }
 
+    
     /**
      * Lists all Manufacturers models.
      * @return mixed

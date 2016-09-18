@@ -4,6 +4,7 @@ namespace app\models;
 
 use app\models\Categories;
 use Yii;
+use php_rutils\RUtils;
 
 /**
  * This is the model class for table "products".
@@ -36,6 +37,16 @@ class Products extends \yii\db\ActiveRecord
         return 'products';
     }
 
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->slug = RUtils::translit()->slugify($this->name);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * @inheritdoc
      */
@@ -59,12 +70,12 @@ class Products extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'description' => 'Description',
-            'available' => 'Available',
+            'name' => 'Имя',
+            'description' => 'Описание',
+            'available' => 'Доступность',
             'image' => 'Image',
-            'sku' => 'Sku',
-            'price' => 'Price',
+            'sku' => 'Артикул',
+            'price' => 'Цена',
             'manufacturer_id' => 'Manufacturer ID',
             'category_id' => 'Category ID',
             'slug' => 'ЧПУ'

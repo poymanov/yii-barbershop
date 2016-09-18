@@ -2,6 +2,8 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\Categories;
+use app\models\Manufacturers;
 use Yii;
 use app\models\Products;
 use yii\data\ActiveDataProvider;
@@ -61,6 +63,7 @@ class ProductsController extends Controller
      */
     public function actionView($id)
     {
+
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
@@ -97,8 +100,14 @@ class ProductsController extends Controller
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
+
+            $mans = Manufacturers::find()->asArray()->all();
+            $cat = Categories::find()->asArray()->all();
+
             return $this->render('update', [
                 'model' => $model,
+                'mans' => $mans,
+                'cat' => $cat
             ]);
         }
     }

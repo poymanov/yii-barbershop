@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use php_rutils\RUtils;
 
 /**
  * This is the model class for table "categories".
@@ -21,13 +22,23 @@ class Categories extends \yii\db\ActiveRecord
         return 'categories';
     }
 
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->slug = RUtils::translit()->slugify($this->name);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['name', 'slug'], 'required'],
+            [['name'], 'required'],
             [['name'], 'string', 'max' => 255],
         ];
     }
@@ -39,7 +50,7 @@ class Categories extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Название',
             'slug' => 'ЧПУ'
         ];
     }

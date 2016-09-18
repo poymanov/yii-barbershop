@@ -9,6 +9,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use app\models\OrdersItems;
 
 /**
  * OrdersController implements the CRUD actions for Orders model.
@@ -61,8 +62,13 @@ class OrdersController extends Controller
      */
     public function actionView($id)
     {
+        $order = $this->findModel($id);
+
+        $items = OrdersItems::find()->with('product')->where(['order_id' => $order->id])->all();
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $order,
+            'items' => $items
         ]);
     }
 

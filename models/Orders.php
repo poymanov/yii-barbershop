@@ -41,7 +41,7 @@ class Orders extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
+            'id' => 'Номер заказа',
             'user_id' => 'User ID',
         ];
     }

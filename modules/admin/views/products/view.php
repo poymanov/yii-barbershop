@@ -15,11 +15,11 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Изменить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Точно удаляем?',
                 'method' => 'post',
             ],
         ]) ?>
@@ -30,14 +30,24 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'id',
             'name',
-            'slug',
             'description:ntext',
-            'available',
+            [
+                'attribute' => 'available',
+                'value' =>  $model->available ? "+": "-"
+            ],
             'image',
             'sku',
             'price',
-            'manufacturer_id',
-            'category_id',
+            [
+                'label' => 'Производитель',
+                'value' => $model->manufacturer->name
+
+            ],
+            [
+                'label' => 'Категория',
+                'value' => $model->category->name
+
+            ],
         ],
     ]) ?>
 

@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use php_rutils\RUtils;
 
 /**
  * This is the model class for table "manufacturers".
@@ -18,6 +19,16 @@ class Manufacturers extends \yii\db\ActiveRecord
     public static function tableName()
     {
         return 'manufacturers';
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            $this->slug = RUtils::translit()->slugify($this->name);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
